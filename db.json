@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "title": "as",
+      "number": "two",
+      "description": "good",
+      "currency": 5,
+      "date": "2023-04-28T18:30:00.000Z",
+      "autocomplete": "Three",
+      "id": 1
+    },
+    {
+      "title": "abc",
+      "number": "two",
+      "description": "bad",
+      "currency": 6,
+      "date": "2023-04-26T18:30:00.000Z",
+      "autocomplete": "Two",
+      "id": 2
+    },
+    {
+      "title": "dg",
+      "number": "two",
+      "description": "bad",
+      "currency": 1,
+      "date": "2023-04-26T18:30:00.000Z",
+      "autocomplete": "One",
+      "id": 3
+    }
+  ]
+}
