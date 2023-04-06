@@ -1,0 +1,87 @@
+<mat-toolbar style="background-color: rgb(0, 1, 82); color: white;">
+  <span>Angular Test - Green Coding</span>
+  <span class="example-spacer"></span>
+  <!-- <button mat-raised-button (click)="addUserBtn()">
+    Add User
+  </button> -->
+</mat-toolbar>
+
+
+<div class="body">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row" class="id"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td mat-cell *matCellDef="let row" class="title"> {{row.title}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let row" class="des"> {{row.description}} </td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Number </th>
+        <td mat-cell *matCellDef="let row" class="num"> {{row.number}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="currency">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Currency </th>
+        <td mat-cell  *matCellDef="let row" class="currency"> {{row.currency | currency}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+        <td mat-cell *matCellDef="let row" class="date"> {{row.date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="autocomplete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> AutoComplete </th>
+        <td mat-cell *matCellDef="let row" class="auto"> {{row.autocomplete}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let row" style="width: 200px;">
+          <button mat-icon-button color="primary" (click)="addUserBtn()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="editUserBtn(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteUserbtn(row.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>
+
+
+

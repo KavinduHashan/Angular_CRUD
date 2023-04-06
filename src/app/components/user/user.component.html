@@ -1,0 +1,66 @@
+<div mat-dialog-title>
+  User Form
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="container">
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="abc" formControlName="title">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Select a Number</mat-label>
+        <mat-select formControlName="number" placeholder="Select">
+          <mat-option *ngFor="let values of numbers" [value]="values">{{values}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Type here" formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Currency</mat-label>
+        <input matInput placeholder="$5" type="number" formControlName="currency">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Number - autoCom</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               formControlName="autocomplete"
+               [matAutocomplete]="auto"
+               >
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date*</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName="date">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions class="btn">
+      <button mat-raised-button type="submit" color="primary">{{data ? 'Update' : 'Save'}}</button>
+      <button mat-raised-button type="button" [mat-dialog-close]="false">Close</button>
+    </div>
+
+  </div>
+</form>

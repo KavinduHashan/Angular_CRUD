@@ -1,0 +1,42 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+table {
+  width: 1000px;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 100px;
+  padding: 15px;
+
+}
+
+/* .text{
+  text-align: right;
+} */
+
+.body{
+  width: 1000px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button{
+ size: 10px;
+ display: inline-flex;
+}
+
+.currency, .date{
+  text-align: right;
+}
+
+.id, .title, .des, .num, .auto{
+  text-align: left;
+}
