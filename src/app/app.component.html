@@ -42,7 +42,7 @@
 
       <ng-container matColumnDef="currency">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Currency </th>
-        <td mat-cell  *matCellDef="let row" class="currency"> {{row.currency | currency}} </td>
+        <td mat-cell  *matCellDef="let row" class="currency"> {{row.currency | currency: '$' :'symbol-narrow': '1.2-2'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="date">
