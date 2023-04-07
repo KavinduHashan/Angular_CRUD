@@ -32,9 +32,10 @@ export class UserComponent implements OnInit{
   // ];
 
   //autocomplete
-  autocomplete = new FormControl('');
+  formControl = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions!: Observable<string[]>;
+
 
   constructor(
     private formbuild: FormBuilder,
@@ -49,24 +50,38 @@ export class UserComponent implements OnInit{
       description: ['', Validators.required],
       currency: ['', Validators.required],
       date: ['', Validators.compose([Validators.required, this.validateDate])],
-      autocomplete: ['', Validators.required]
+      autocomplete: ''
 
     })
+
+    // this.userForm = this.formbuild.group({
+    //   title: '',
+    //   number: '',
+    //   description: '',
+    //   currency: '',
+    //   date: '',
+    //   autocomplete: ''
+
+    // })
+
+
 
   }
   ngOnInit(): void {
     this.userForm.patchValue(this.data);  //edit
 
     // autocomplted
-    this.filteredOptions = this.autocomplete.valueChanges.pipe(
+    this.filteredOptions = this.formControl.valueChanges.pipe(
+
       startWith(''),
       map(value => this._filter(value || '')),
     );
+
   }
 
 
   //autocompleted
-  private _filter(value: string): string[] {
+  public _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
