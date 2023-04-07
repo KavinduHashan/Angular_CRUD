@@ -27,9 +27,10 @@
     </div>
 
     <div class="row">
-      <mat-form-field appearance="outline">
+     <mat-form-field appearance="outline">
         <mat-label>Currency</mat-label>
-        <input matInput placeholder="$5" type="number" formControlName="currency">
+        <div matPrefix style="padding: 5px;">$</div>
+        <input matInput placeholder="5" type="number" formControlName="currency">
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Number - autoCom</mat-label>
