@@ -32,7 +32,7 @@ export class UserComponent implements OnInit{
   // ];
 
   //autocomplete
-  formControl = new FormControl('');
+  autocomplete = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions!: Observable<string[]>;
 
@@ -71,7 +71,7 @@ export class UserComponent implements OnInit{
     this.userForm.patchValue(this.data);  //edit
 
     // autocomplted
-    this.filteredOptions = this.formControl.valueChanges.pipe(
+    this.filteredOptions = this.autocomplete.valueChanges.pipe(
 
       startWith(''),
       map(value => this._filter(value || '')),
